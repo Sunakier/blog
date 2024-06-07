@@ -6,7 +6,14 @@ export default function FourZeroFour() {
   return (
     <div className="flex flex-col items-center justify-center pt-4 md:pt-10 xl:pt-20">
       <div>
-        <Image src={'/static/images/404.png'} alt="404" width={500} height={500} />
+        <Image
+          src={
+            'https://img10.360buyimg.com/myjd/jfs/t20270607/188888/19/47377/407749/6663254dFde89c4d6/ae78c17feeedaaf1.png'
+          }
+          alt="404"
+          width={500}
+          height={500}
+        />
       </div>
       <div className="space-x-2 pt-8 md:space-y-5 md:pt-12 xl:pt-16">
         <div className="max-w-md text-center">

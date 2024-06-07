@@ -1,7 +1,8 @@
 export let BLUR_IMAGE_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcvWS1LgAGJQIpt50GkgAAAABJRU5ErkJggg=='
 
-export let LOGO_IMAGE_PATH = '/static/images/logo.png'
+export let LOGO_IMAGE_PATH =
+  'https://img30.360buyimg.com/myjd/jfs/t20270607/130525/27/44762/58186/6663254aF0afa2af5/b1029faade67fa5a.png'
 
 export let GISCUS_COMMENTS_ID = 'comments-container'
 export let UTTERANCES_COMMENTs_ID = 'comments-container'

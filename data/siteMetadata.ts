@@ -9,9 +9,12 @@ export let siteMetadata = {
   language: 'en-us',
   siteUrl: 'https://blog.57777777.xyz',
   siteRepo: 'https://github.com/Sunakier/blog',
-  siteLogo: '/static/images/logo.png',
-  image: '/static/images/logo.png',
-  socialBanner: '/static/images/logo.png',
+  siteLogo:
+    'https://img30.360buyimg.com/myjd/jfs/t20270607/130525/27/44762/58186/6663254aF0afa2af5/b1029faade67fa5a.png',
+  image:
+    'https://img30.360buyimg.com/myjd/jfs/t20270607/130525/27/44762/58186/6663254aF0afa2af5/b1029faade67fa5a.png',
+  socialBanner:
+    'https://img30.360buyimg.com/myjd/jfs/t20270607/130525/27/44762/58186/6663254aF0afa2af5/b1029faade67fa5a.png',
   email: 'lazyerpaper@qq.com',
   github: 'https://github.com/Sunakier',
   telegram: 'https://t.me/Wuqibor',
