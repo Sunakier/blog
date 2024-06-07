@@ -46,7 +46,7 @@ authors: ['default']
 
 ---
 
-<!--![Guilin](/static/images/blog/202309/Poem_Dream_Hua/IMG20230808173732_20240607020058.jpg)-->
+{/* ![Guilin](/static/images/blog/202309/Poem_Dream_Hua/IMG20230808173732_20240607020058.jpg) */}
 ![Guilin](https://img30.360buyimg.com/myjd/jfs/t20270607/165868/13/45705/1949917/66632545F0327efde/177ac289aa4bd8f8.jpg)
 
 _图·*于2023/8/8摄于桂林城·七星区*_  

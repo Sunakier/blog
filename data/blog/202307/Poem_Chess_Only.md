@@ -28,7 +28,7 @@ authors: ['default']
 
 _原文: BiliBili 臭蛋老师_
 
-<!--![Guilin](/static/images/blog/202307/1687999780892.jpeg)-->
+{/* ![Guilin](/static/images/blog/202307/1687999780892.jpeg) */}
 ![Guilin](https://img20.360buyimg.com/myjd/jfs/t20270607/188204/27/46653/315774/66632549Fd6dc1293/d6542d15bdc8c9ce.jpg)
 
 _图·著名知乎er_

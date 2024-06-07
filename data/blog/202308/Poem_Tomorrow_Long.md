@@ -20,7 +20,7 @@ _——Free Wind And Light_
 _CTS By Wuqibor_
 
 
-<!--![Guilin·红尘](/static/images/blog/202308/IMG_20230715_192339.jpg)-->
+{/* ![Guilin·红尘](/static/images/blog/202308/IMG_20230715_192339.jpg) */}
 ![Guilin·红尘](https://img30.360buyimg.com/myjd/jfs/t20270607/178418/19/41376/1695191/66632547F6f699acb/8688ce4696f49b8e.jpg)
 
 _图·红尘掩映下的秋·Wuqibor 2023/8/4_

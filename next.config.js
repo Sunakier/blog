@@ -17,11 +17,11 @@ module.exports = withBundleAnalyzer({
       },
       {
         protocol: 'https',
-        hostname: '*.cdninstagram.com',
+        hostname: 'raw.githubusercontent.com',
       },
       {
         protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
+        hostname: '*.360buyimg.com',
       },
     ],
   },
@@ -30,6 +30,21 @@ module.exports = withBundleAnalyzer({
       {
         source: '/gh/:path*',
         destination: 'https://raw.githubusercontent.com/:path*',
+        locale: false,
+      },
+      {
+        source: '/jd/:path*',
+        destination: 'https://img30.360buyimg.com/myjd/jfs/:path*',
+        locale: false,
+      },
+      {
+        source: '/wqcdn/:path*',
+        destination: 'https://cdn.57777777.xyz/:path*',
+        locale: false,
+      },
+      {
+        source: '/alist/:path*',
+        destination: 'https://alist.57777777.xyz/d/:path*',
         locale: false,
       },
     ]
