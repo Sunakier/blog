@@ -1,0 +1,146 @@
+---
+title: '一次获取 Haier M638_ALI 的 YunOS 的 Root 权限的记录'
+date: '2024-07-17'
+tags: [ 'Tech' ]
+draft: false
+summary: '一次获取 Haier M638_ALI 的 YunOS 的 Root 权限的记录'
+authors: [ 'default' ]
+---
+
+# TL;DR
+
+使用 ADB 进入自带的 Recovery, 通过备份恢复 system.img 的方式为系统加入 SuperSU
+
+# 正文
+
+## 提要
+
+家里很久之前买了海尔的 电视, 系统是阿里的 YunOS, 几波更新下来, 广告非常多, 整体很卡, 关键是东西还删不掉, 遂尝试 Root
+
+我这台设备在网络上的信息很少, 可以说基本没有有价值内容, 大多数关于 YunOS 内容都是关于天猫魔盒的(一个b样)
+
+这台设备之前可以用 360超级ROOT 一键获取, 但是我尝试经过更新已经不行了
+
+## 开始摸索
+
+### 信息搜集
+
+我的设备本身已经开启了 adb 网络调试, 所以跳过了手动从工厂模式开启 ADB 的方法, 直接连接上了, 具体的其他很多教程
+
+连上 shell 了, 搜集了一波信息, 大致整理一下
+
+```
+Linux 3.10.40 Busybox v1.16
+面板 KTU84P
+系统 2.0.13 4.4.4-R-20200711.1405 
+安全补丁 2015-11-01
+型号 Haier 638ali88 MST6A638 M638_ALI 
+CPU MT7662
+网卡 RT2870STA
+```
+
+一些在 /system/bin/ 里头或许有用的文件
+
+```
+alibiz_root_service
+alibiz_starter.sh
+alibiz_sys_savior
+```
+
+另外还发现了 YunOS 锁定桌面的配置文件, 在 /etc/alibiz_rules/app_chooser.xml 里头, 能找到有关内容
+
+还发现自带的 busybox 带有一个 su 命令, 或许可以用于切换用户, 但是缺失 passwd 文件, 没有定义用户
+
+貌似没有找到什么有价值的内容, 那几个脚本执行后无有价值内容
+
+在某论坛发现有重启至 Recovery, 遂尝试通过 adb 重启
+
+```
+reboot recovery
+```
+
+### Recovery 尝试
+
+到 Recovery 了 ( 图片是补的但是完全一样 )
+
+{/* ![Recovery](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_1.jpg) */}
+![Recovery](https://img30.360buyimg.com/myjd/jfs/t20270717/249339/39/15452/71443/66977fffF1cb0e594/b604231a6ebc1c33.jpg)
+
+(吐槽一下这个b玩意, 深色背景黑色字体, 几乎看不见, 必须凑很近)
+
+发现有安装升级包的选项, 拿 Magisk 过去看看
+
+果然, 有签名校验, 但是貌似刚刚在 system 分区有个 update_recovery_sign 文件, 应该是签名一类
+
+下面貌似有用 adb sideload 的地方, 说不定一举拿下 Recovery 的 Shell
+
+{/* ![AdbSideload](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_2.jpg) */}
+![AdbSideload](https://img20.360buyimg.com/myjd/jfs/t20270717/61892/18/25500/386217/66978306F4085e6cb/6098fce236680015.jpg)
+
+开起来了, 但是这个控制器的报错是什么鬼, 感觉有鬼的欣喜在望
+
+机身背后是一共有三个 USB 接口, 没有双公头 USB 线, 拿了一根 A-C 的线, C口接到了笔记本的 C口, 但是迟迟看不到设备
+
+先尝试了那个所谓的 ***智能下载***, 没设备接入提示, 不会强制 usb-host 模式吧, 寄
+
+{/* ![Plugins](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_3.jpg) */}
+![Plugins](https://img30.360buyimg.com/myjd/jfs/t20270717/237098/4/19352/339603/6697830cFf1b4b288/3bfba6c387f662c8.jpg)
+
+发现下面有系统备份和系统还原的选项, 抱着试试的心态, 拿了个U盘插在他的 USB 接口开始备份
+
+备份完成了, 有点惊喜, 有希望了, 他的备份是普通的 gzip 压缩, 看样子是没有加密的(吧?)
+
+{/* ![BackupFiles](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_4.png) */}
+![BackupFiles](https://img30.360buyimg.com/myjd/jfs/t20270717/226912/14/22395/31396/6697870dF4dcce007/4cec22ab2a850e48.png)
+
+实测是没有加密的, 是原磁盘直接 dump 的内容
+
+好, 解压出 boot.img 上 Magisk 修补
+
+好, 又喜提失败 (bushi)
+
+{/* ![MagiskFail](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_5.png) */}
+![MagiskFail](https://img30.360buyimg.com/myjd/jfs/t20270717/17703/12/21437/14010/66978730F01d7266b/7cc98afe42dec366.png)
+
+我最开始是在模拟器上跑的, 考虑到可能的设备差异, 打算在目标设备修补, 得益于 ( 喜出望外喜极而泣喜上眉梢 ) YunOS 的优异 ( 根号10 ) 魔改, 试过很多文件管理器都无法正确的 Magisk 调用选项 boot.img, 但是实在想想不同版本其实效用相同,
+直接宣判死刑了罢
+
+### 修改 system.img 尝试
+
+然后我就着眼到了备份出来的 system.img, 拿 DiskGenius 挂载一下, 成功挂载
+
+{/* ![DiskGeniusMount](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_6.png) */}
+![DiskGeniusMount](https://img20.360buyimg.com/myjd/jfs/t20270717/174861/3/41455/83372/66978acdFedfc9538/5841d036b30eec1d.png)
+
+光从这些 apk 应该也可以看出来 YunOS 魔改了挺多的安卓基本内容
+
+想到了之前 busybox 的 su 命令, 遂尝试补全 /system/etc/passwd 的内容, 手动新建了一个 root 用户, 顺便把 shell 定义了一下
+
+```
+root::0:0:root:/root:/system/bin/sh
+shell::2000:2000:shell:/:/system/bin/sh
+```
+
+好, 打包, 把 hash 校验文件改好, 刷入系统, 准备开香槟
+
+寄, 明明 passwd 里头压根没写密码, 密码不对, 寄, 明明从系统系统移动过来的带密码的 passwd 文件, 密码永远校验错误, 无法切换到 root 用户, Fxxk YunOS!
+
+没法子了, 灵机一动, 那个时代的机器就应该用那个时代的方法, SuperSU, 启动!
+
+好了, 新的问题, DiskGenius 不支持修改权限, 好吧, 找了台 Ubuntu 的机器把 system 挂载上去了
+
+我使用的是 SuperSU 2.82 版本, 按照 SuperSU 的 How-To-Root 指南, 把 supersu.apk 放到了 priv-app 目录下面, 将 su、suinit、supolicy、sukernel 放到 xbin 目录, 以及对应的 lib 放到了 lib 目录, chmod 设置权限, 压缩回写
+
+{/* ![Upgrade](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_7.png) */}
+![Upgrade](https://img20.360buyimg.com/myjd/jfs/t20270717/232993/33/23415/155119/6697995dFebcf4784/622cb328c04155ad.jpg)
+
+在跑更新了  
+
+{/* ![GetRoot](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_8.png) */}
+![GetRoot](https://img30.360buyimg.com/myjd/jfs/t20270717/226503/1/23005/27811/66979f58F1f05f3ef/c5a857c2b7095e93.png)
+
+收工!
+
+# 结语
+
+这个 b 的 YunOS 是真的难用, 只能说依托, 不过我这个漏洞估计是老机型有, 算是运气
