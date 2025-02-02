@@ -42,9 +42,9 @@ authors: [ 'default' ]
 
 下载解压后得到 rr.img ，上传到 PVE 的存储
 
-![PVE内截图](static/images/blog/202501/The_First_Time_For_PVE/image1.png)
+![PVE内截图](/static/images/blog/202501/The_First_Time_For_PVE/image1.png)
 
-![直通硬盘](static/images/blog/202501/The_First_Time_For_PVE/image2.png)
+![直通硬盘](/static/images/blog/202501/The_First_Time_For_PVE/image2.png)
 
 此处参考内容: [Proxmox VE(PVE)8.0安装黑群晖NAS并直通硬盘 - 要名俗气](https://www.iminling.com/2024/pve-install-nas)  
 

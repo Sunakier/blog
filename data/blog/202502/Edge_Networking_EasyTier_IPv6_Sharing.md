@@ -24,6 +24,6 @@ authors: [ 'default' ]
 
 其实这拓补图很清晰了，但是还是画一下
 
-![整体拓补图](static/images/blog/202502/Edge_Networking_EasyTier_IPv6_Sharing/PixPin_2025-02-02_23-27-27.png)
+![整体拓补图](/static/images/blog/202502/Edge_Networking_EasyTier_IPv6_Sharing/PixPin_2025-02-02_23-27-27.png)
 
 (待续...)
