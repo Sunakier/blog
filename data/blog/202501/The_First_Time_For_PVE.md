@@ -49,4 +49,4 @@ authors: [ 'default' ]
 此处参考内容: [Proxmox VE(PVE)8.0安装黑群晖NAS并直通硬盘 - 要名俗气](https://www.iminling.com/2024/pve-install-nas)  
 
 
-(未完待续...)
+(未完待续... 预计不会有后续了 因为转飞牛了...)

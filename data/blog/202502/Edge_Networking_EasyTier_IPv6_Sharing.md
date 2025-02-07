@@ -26,4 +26,6 @@ authors: [ 'default' ]
 
 ![整体拓补图](/static/images/blog/202502/Edge_Networking_EasyTier_IPv6_Sharing/PixPin_2025-02-02_23-27-27.png)
 
-(待续...)
+# 后续
+
+发现晚高峰运营商各种 Qos 丢包限速太难受了，已经放弃这个方案，预计直接额外拉一条移动宽带到本地  
