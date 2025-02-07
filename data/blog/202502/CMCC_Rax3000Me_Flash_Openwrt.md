@@ -1,16 +1,16 @@
 ---
-title: ''
+title: 'CMCC RAX3000Me：拆机TTL刷机并刷入自编译带 MTK 硬件加速的 ImmortalWrt 固件'
 date: '2025-02-07'
 tags: [ 'Tech' ]
 draft: false
-summary: 'CMCC RAX3000Me：拆机TTL刷机并刷入自编译带 MTK 硬件加速的 ImmortalWrt 固件'
+summary: '完整的对于 CMCC RAX3000Me 的拆机 TTL 刷入并刷入自编译带 MTK 硬件加速的 ImmortalWrt 固件流程'
 authors: [ 'default' ]
 ---
 
 # 前言
 之前入了 IPQ5018 的 CMCC RAX3000QY，为了硬件加速一直使用的是 Nwrt 的固件，因为bug实在太多（莫名其妙的交换机就直通到上级网关，Nwrt 团队也几乎没有更新），生态也是一言难尽（要啥没啥，没有NSS部分源码没法编译对应内核），上个星期换了 Lean 的固件，可惜高版本内核没有完全体的 NSS 加速，比较蛋疼，但是实测下来也没有那么不堪，CPU 占用稍高，温度稍高  
 
-扯远了，这次在小黄鱼花了 75 收了一台 CMCC RAX3000Me，这个机器应该是 CMCC RAX3000M 的后续，和 RAX3000M 有些许不同  
+扯远了，这次在小黄鱼花了 75 收了一台 CMCC RAX3000Me，这个机器应该是 CMCC RAX3000M 的后续，外观抄菊花 AX3P，说实话确实好看，但又和 RAX3000M 有些许不同  
 
 我手上这台机器来自广东地区，MT7981方案，512MB RAM，128MB SPI NAND，无 USB 版本，背部标签显示批号是 20240710 CH，可以根据恩山教程使用 TTL 拆机刷入（目前仅有）  
 
