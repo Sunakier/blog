@@ -48,13 +48,13 @@ make -j$(nproc)
 
 ## 拆机
 
-![背板图](image.png)
+![背板图](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image.png)
 
 图示，使用吹风机吹4-5分钟，无损撕下标签，背后有两颗螺丝，周围是卡扣，使用撬板在周围大力出奇迹来一圈就很容易拆开  
 
 如果不想拆机，RAX3000Me 的 TTL 串口位置比较友好，大致在图中红框位置，可以尝试使用长脚针或其他方案透过外壳孔隙直接插入连接TTL，其对应从左到右为 GND TX 3.3V RX，请注意，不需要接 VCC(3.3V) 引脚，并且这里发送端和接收端的 TX 和 RX 需要交叉连接，同时应该选用 3.3V 电平，否则可能无法发送内容  
 
-![TTL引脚图](image-1.png)
+![TTL引脚图](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-1.png)
 
 连接好 TTL 后，可以上电尝试跑码，官方的 Uboot 下会有提示进入 Uboot 控制台的选项，但是这个选项并没有什么卵用，进入后会提示 5s 后恢复出厂设置，然后重启了  
 
@@ -78,15 +78,15 @@ make -j$(nproc)
 
 对于一次成功的引导，应该如下图所示，看到有类似 *NOTICE:  Received FIP xxxx* 的内容，代表我们已经成功了：
 
-![加载成功标识](image-2.png)
+![加载成功标识](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-2.png)
 
 按照 hanwckf 大佬博客中的说明 [mt798x uboot 功能介绍](https://cmi.hanwckf.top/p/immortalwrt-mt798x/) ，我们刷入后使用串口调试工具连接后应该即可看到如图菜单（U-Boot Boot Menu）  
 
-![加载成功后的内容](image-3.png)
+![加载成功后的内容](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-3.png)
 
 但是实际上等我连接之后就只有如下图的 Uboot 的控制台了，此时启用了 HTTP 服务器，可以通过手动配置 IP 地址 192.168.1.0/24 网段的 IP 与路由进行通信
 
-![Uboot控制台-HTTP](image-4.png)
+![Uboot控制台-HTTP](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-4.png)
 
 在浏览器中打开，经过尝试发现以下 URL 可用：
 
@@ -96,11 +96,11 @@ make -j$(nproc)
 更新 BL2 固件：http://192.168.1.1/bl2.html # 可选  
 ```
 
-![UbootHTTP页面](image-5.png)
+![UbootHTTP页面](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-5.png)
 
 同时可以在串口终端中使用 Ctrl+C 结束 HTTP 服务器，使用 TFTP 的方式上传固件，具体方式自行探索，也很简单，这里不过多赘述
 
-![Tftpd64](image-6.png)
+![Tftpd64](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-6.png)
 
 奇怪的是，我尝试刷入 BL2 固件的时候，发现 Uboot 提示我的固件部署 BL2 固件，无法通过校验，通过网页或者 TFTP 都是如此，但是测试中不影响使用，就暂时不管了  
 
@@ -112,7 +112,7 @@ make -j$(nproc)
 
 下图是一台刷入了 immortalwrt-mt798x 项目的固件并且运行了一坤时的 CMCC RAX3000Me 路由发生的变化，路由很好，使我原地旋转（）  
 
-![系统截图](image-7.png)
+![系统截图](/static/images/blog/202502/CMCC_Rax3000Me_Flash_Openwrt.md/image-7.png)
 
 下面是我本次刷机用到的文件，包括：
 1. 引述的上面大佬的教程存档  
