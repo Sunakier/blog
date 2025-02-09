@@ -67,7 +67,7 @@ make -j$(nproc)
 按照上面准备工作下载好 bl2 固件和 Uboot 固件，然后使用 mtk_uartboot 引导 Uboot 固件，请注意，这里的 **COM1** 需要替换为你的电脑上对于设备的端口号，Linux 下需要替换为对应设备，**对于此处的的 bl2 固件，部分 RAX3000Me 的设备使用的内存是 DDR3 的（来自恩山部分用户反馈），可能需要随机应变，选择 DDR3 固件**，我手上没有机器就不赘述  
 
 ```shell
-.\mtk_uartboot.exe -s COM1 -p mt7981-ddr4-bl2.bin -a -fmt7981_cmcc_rax3000m-fip-fixed-parts.bin --brom-load-baudrate 921600--bl2-load-baudrate 1500000
+.\mtk_uartboot.exe -s COM1 -p mt7981-ddr4-bl2.bin -a -f mt7981_cmcc_rax3000m-fip-fixed-parts.bin --brom-load-baudrate 921600 --bl2-load-baudrate 1500000
 ```
 
 如果你出现一直卡在 Handshake 的情况下，尝试检查：  
