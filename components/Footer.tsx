@@ -11,6 +11,15 @@ export function Footer() {
           <div>{`Copyright © ${new Date().getFullYear()}`}</div>
           <span>{` • `}</span>
           <span>{siteMetadata.footerTitle}</span>
+          <span>{` • `}</span>
+          <a
+            href="https://icp.gov.moe/?keyword=20255777"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+          >
+            萌ICP备20255777号
+          </a>
         </div>
       </div>
     </footer>
