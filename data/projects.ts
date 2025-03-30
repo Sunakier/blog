@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     imgSrc: '/',
     url: 'https://github.com/Sunakier/qjplus',
     // demo: <AvpDemo />,
-    builtWith: ['Python', 'JavaScript'],
+    builtWith: ['Python', 'Javascript'],
   },
   {
     type: 'self',
@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
     description: `Python-Based Solution by Protocols for "教育部全国青少年普法网" (qspfw.moe.gov.cn)`,
     imgSrc: '/',
     url: '/',
-    builtWith: ['Python', 'JavaScript'],
+    builtWith: ['Python', 'Javascript'],
   },
   {
     type: 'self',
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     description: `A Seewo Application Version Tracker`,
     imgSrc: '/',
     url: 'https://swapp.57777777.xyz',
-    builtWith: ['Python', 'JavaScript'],
+    builtWith: ['Python', 'Javascript'],
   },
   {
     type: 'self',
@@ -32,6 +32,6 @@ export const PROJECTS: Project[] = [
     description: `EasyBasic File Synchronization Tool Based on Python with C/S Architecture`,
     imgSrc: '/',
     url: 'https://github.com/Sunakier/FileTool',
-    builtWith: ['Python', 'JavaScript'],
+    builtWith: ['Python', 'Javascript'],
   },
 ]
