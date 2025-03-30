@@ -12,7 +12,10 @@ export const metadata = genPageMetadata({ title: 'About' })
 
 export default function AboutPage() {
   const author = allAuthors.find((p) => p.slug === 'default') as Author
-  const mainContent = coreContent(author)
+  const mainContent = {
+    ...coreContent(author),
+    toc: author.toc,
+  }
 
   const AuthorMDXComponents = {
     ...MDX_COMPONENTS,
