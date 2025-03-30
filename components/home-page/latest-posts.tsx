@@ -8,11 +8,7 @@ import { PostCardListView } from '~/components/blog/post-card-list-view'
 import { GrowingUnderline } from '~/components/ui/growing-underline'
 import { Link } from '~/components/ui/link'
 
-export function LatestPosts({
-  posts,
-}: {
-  posts: CoreContent<Blog>[]
-}) {
+export function LatestPosts({ posts }: { posts: CoreContent<Blog>[] }) {
   return (
     <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 md:mt-8 md:space-y-8">
       <div className="flex items-center justify-between">
@@ -39,6 +35,17 @@ export function LatestPosts({
           </li>
         ))}
       </ul>
+
+      {/* All blogs buttum */}
+      {posts.length > 0 && (
+        <div className="flex items-center justify-center pt-6 md:pt-10">
+          <Link href="/blog" className="" aria-label="All posts">
+            <GrowingUnderline data-umami-event="all-posts-bottom">
+              <span className="text-base font-medium">View all posts</span> &rarr;
+            </GrowingUnderline>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }
