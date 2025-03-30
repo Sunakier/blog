@@ -69,15 +69,18 @@ export function ProjectCard({
           {repository ? (
             <RepoMeta repo={repository} />
           ) : (
-            <Link
-              href={url!}
-              className="text-sm font-medium leading-6"
-              aria-label={`Link to ${title}`}
-            >
-              <GrowingUnderline data-umami-event="project-learn-more">
-                了解更多 &rarr;
-              </GrowingUnderline>
-            </Link>
+            url &&
+            url !== '/' && (
+              <Link
+                href={url}
+                className="text-sm font-medium leading-6"
+                aria-label={`Link to ${title}`}
+              >
+                <GrowingUnderline data-umami-event="project-learn-more">
+                  Learn More &rarr;
+                </GrowingUnderline>
+              </Link>
+            )
           )}
         </div>
       </RadiantCard>
@@ -142,15 +145,18 @@ export function ProjectCard({
         {repository ? (
           <RepoMeta repo={repository} />
         ) : (
-          <Link
-            href={url!}
-            className="text-base font-medium leading-6"
-            aria-label={`Link to ${title}`}
-          >
-            <GrowingUnderline data-umami-event="project-learn-more">
-              了解更多 &rarr;
-            </GrowingUnderline>
-          </Link>
+          url &&
+          url !== '/' && (
+            <Link
+              href={url}
+              className="text-base font-medium leading-6"
+              aria-label={`Link to ${title}`}
+            >
+              <GrowingUnderline data-umami-event="project-learn-more">
+                Learn More &rarr;
+              </GrowingUnderline>
+            </Link>
+          )
         )}
       </div>
     </RadiantCard>

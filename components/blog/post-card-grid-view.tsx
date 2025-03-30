@@ -15,7 +15,7 @@ export function PostCardGridView({ post }: { post: CoreContent<Blog> }) {
   return (
     <article>
       <div className="flex flex-col items-start justify-between gap-4 md:gap-6">
-        {hasImages && (
+        {hasImages ? (
           <Link
             href={`/${path}`}
             className={clsx([
@@ -39,6 +39,8 @@ export function PostCardGridView({ post }: { post: CoreContent<Blog> }) {
               ])}
             />
           </Link>
+        ) : (
+          <div className="h-48 w-full rounded-xl bg-white dark:bg-dark" />
         )}
         <div className="w-full space-y-3">
           <div className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400">
@@ -52,9 +54,9 @@ export function PostCardGridView({ post }: { post: CoreContent<Blog> }) {
                 <GrowingUnderline>{title}</GrowingUnderline>
               </Link>
             </h3>
-            {/* <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600 dark:text-gray-500 md:mt-3">
+            <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600 dark:text-gray-500 md:mt-3">
               {summary}
-            </p> */}
+            </p>
           </div>
         </div>
       </div>
