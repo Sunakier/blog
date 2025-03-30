@@ -21,7 +21,7 @@ export function AuthorLayout({ children, content }: Props) {
       <div className="py-8 md:grid md:grid-cols-3">
         <div className="space-y-24 pr-4">
           <ProfileCard />
-          {content.toc && (
+          {content.toc && content.toc.length > 0 && (
             <div className="sticky top-24 hidden border-t border-gray-200 pt-4 dark:border-gray-700 lg:block">
               <TableOfContents toc={content.toc} />
             </div>
