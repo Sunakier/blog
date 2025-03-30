@@ -17,33 +17,37 @@ export function PostCardListView({
   loading?: 'lazy' | 'eager'
 }) {
   const { slug, date, title, summary, tags, images, readingTime } = post
+  const hasImages = images && images.length > 0
+
   return (
     <article>
       <div className="flex flex-col gap-2 space-y-3 md:flex-row md:gap-8">
-        <Link
-          href={`/blog/${slug}`}
-          className={clsx([
-            'relative block shrink-0',
-            'h-auto w-full md:h-80 md:w-72',
-            'pb-3 pl-0 pr-3 pt-0',
-            'transition-all ease-in-out hover:pb-2 hover:pl-1 hover:pr-2 hover:pt-1',
-          ])}
-        >
-          <Image
-            src={images && images.length > 0 ? images[0] : SITE_METADATA.socialBanner}
-            alt={title}
-            width={500}
-            height={500}
-            className="aspect-video h-full w-full rounded-xl shadow-2xl"
-            loading={loading}
-          />
-          <GritBackground
+        {hasImages && (
+          <Link
+            href={`/blog/${slug}`}
             className={clsx([
-              'bottom-0 left-3 right-0 top-3',
-              'rounded-xl border-2 border-gray-800 dark:border-gray-400',
+              'relative block shrink-0',
+              'h-auto w-full md:h-80 md:w-72',
+              'pb-3 pl-0 pr-3 pt-0',
+              'transition-all ease-in-out hover:pb-2 hover:pl-1 hover:pr-2 hover:pt-1',
             ])}
-          />
-        </Link>
+          >
+            <Image
+              src={images[0]}
+              alt={title}
+              width={500}
+              height={500}
+              className="aspect-video h-full w-full rounded-xl shadow-2xl"
+              loading={loading}
+            />
+            <GritBackground
+              className={clsx([
+                'bottom-0 left-3 right-0 top-3',
+                'rounded-xl border-2 border-gray-800 dark:border-gray-400',
+              ])}
+            />
+          </Link>
+        )}
         <div className="space-y-4 md:space-y-5">
           <div className="space-y-4 md:space-y-6">
             <div className="space-y-3">
