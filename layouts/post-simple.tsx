@@ -1,4 +1,4 @@
-import type { Blog, Snippet } from 'contentlayer/generated'
+import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from 'pliny/utils/contentlayer'
 import type { ReactNode } from 'react'
 import { BlogMeta } from '~/components/blog/blog-meta'
@@ -12,7 +12,7 @@ import { SITE_METADATA } from '~/data/site-metadata'
 import { EditOnGithub } from '~/components/blog/edit-on-github'
 
 interface PostSimpleProps {
-  content: CoreContent<Blog | Snippet>
+  content: CoreContent<Blog>
   children: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }

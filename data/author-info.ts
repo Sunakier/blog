@@ -1,7 +1,7 @@
 export const AUTHOR_INFO = {
   name: 'Wuqibor / Sunakier',
   description: 'Where a boy document life and record ordinary journeys',
-  email: '1722302509@qq.com',
+  email: 'lazyerpaper@qq.com',
   identity: 'Student | Learner',
   address: {
     city: 'Guilin, China',

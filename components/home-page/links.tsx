@@ -1,7 +1,7 @@
 import { Link } from '~/components/ui/link'
 import { Twemoji } from '~/components/ui/twemoji'
 import { GrowingUnderline } from '~/components/ui/growing-underline'
-import { SITE_METADATA } from '~/data/site-metadata'
+//import { SITE_METADATA } from '~/data/site-metadata'
 
 const LINKS = [
   {
@@ -21,12 +21,6 @@ const LINKS = [
     href: `/about`,
     emoji: 'smiling-face-with-sunglasses',
     event: 'home-link-about',
-  },
-  {
-    title: `Traffic and insights`,
-    href: SITE_METADATA.analytics.umamiAnalytics.shareUrl,
-    emoji: 'bar-chart',
-    event: 'home-link-analytics',
   },
 ]
 

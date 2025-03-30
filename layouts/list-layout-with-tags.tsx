@@ -2,7 +2,7 @@
 'use client'
 
 import { clsx } from 'clsx'
-import type { Blog, Snippet } from 'contentlayer/generated'
+import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from 'pliny/utils/contentlayer'
 import { useState } from 'react'
 import { Tag } from '~/components/blog/tags'
