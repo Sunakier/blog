@@ -11,7 +11,10 @@ import { fetcher } from '~/utils/misc'
 
 export function LogoAndRepo() {
   const siteRepo = SITE_METADATA.siteRepo.replace('https://github.com/', '')
-  const { data: repo } = useSWR<GithubRepository>(`/api/github?repo=${siteRepo}`, fetcher)
+  const { data: repo } = useSWR<GithubRepository>(
+    SITE_METADATA.githubStarShower ? `/api/github?repo=${siteRepo}` : null,
+    fetcher
+  )
 
   return (
     <div className="flex items-center gap-4">
@@ -19,10 +22,12 @@ export function LogoAndRepo() {
       <Link href={SITE_METADATA.siteRepo} rel="noreferrer">
         <GrowingUnderline data-umami-event="footer-view-source" className="flex items-center gap-2">
           <span className="font-medium">{SITE_METADATA.headerTitle}</span>
-          <span className="inline-flex items-center text-gray-500 dark:text-gray-400">
-            (<Star className="mr-1 h-4 w-4" />
-            {repo ? repo.stargazerCount : '---'})
-          </span>
+          {SITE_METADATA.githubStarShower && (
+            <span className="inline-flex items-center text-gray-500 dark:text-gray-400">
+              (<Star className="mr-1 h-4 w-4" />
+              {repo ? repo.stargazerCount : '---'})
+            </span>
+          )}
         </GrowingUnderline>
       </Link>
     </div>

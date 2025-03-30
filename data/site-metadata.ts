@@ -2,14 +2,14 @@ export const SITE_METADATA = {
   title: `Wuqibor's blog - A ordinary boy's journey`,
   author: 'Wuqibor',
   headerTitle: `Wuqibor's blog`,
-  description:
-    'Where a boy document life and record ordinary journeys.',
+  description: 'Where a boy document life and record ordinary journeys.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://blog.lazyerpaper.top',
   siteRepo: 'https://github.com/Sunakier/blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/profile.webp`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
+  githubStarShower: false, // switch star shower
 
   locale: 'en-US',
   stickyNav: false,
