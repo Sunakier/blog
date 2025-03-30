@@ -319,10 +319,6 @@
 .twa-bar-chart {
   background-image: url('https://cdnjs.snrat.com/ajax/libs/twemoji/15.1.0/svg/1f4ca.svg');
 }
-<<<<<<< HEAD
-.twa-cup-with-straw {
-  background-image: url('https://cdnjs.snrat.com/ajax/libs/twemoji/15.1.0/svg/1f964.svg');
-=======
 .twa-open-book {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f4d6.svg');
 }
@@ -382,5 +378,4 @@
 }
 .twa-link {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg');
->>>>>>> remote-main
 }

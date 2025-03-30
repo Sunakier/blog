@@ -1,10 +1,12 @@
 ---
 title: '一次获取 Haier M638_ALI 的 YunOS 的 Root 权限的记录'
 date: '2024-07-17'
-tags: [ 'Tech' ]
+tags: ['Tech']
 draft: false
 summary: '一次获取 Haier M638_ALI 的 YunOS 的 Root 权限的记录'
-authors: [ 'default' ]
+authors: ['default']
+images: []
+lastmod: '2024-07-17'
 ---
 
 # TL;DR
@@ -32,9 +34,9 @@ authors: [ 'default' ]
 ```
 Linux 3.10.40 Busybox v1.16
 面板 KTU84P
-系统 2.0.13 4.4.4-R-20200711.1405 
+系统 2.0.13 4.4.4-R-20200711.1405
 安全补丁 2015-11-01
-型号 Haier 638ali88 MST6A638 M638_ALI 
+型号 Haier 638ali88 MST6A638 M638_ALI
 CPU MT7662
 网卡 RT2870STA
 ```
@@ -81,7 +83,7 @@ reboot recovery
 
 机身背后是一共有三个 USB 接口, 没有双公头 USB 线, 拿了一根 A-C 的线, C口接到了笔记本的 C口, 但是迟迟看不到设备
 
-先尝试了那个所谓的 ***智能下载***, 没设备接入提示, 不会强制 usb-host 模式吧, 寄
+先尝试了那个所谓的 **_智能下载_**, 没设备接入提示, 不会强制 usb-host 模式吧, 寄
 
 {/* ![Plugins](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_3.jpg) */}
 ![Plugins](https://img30.360buyimg.com/myjd/jfs/t20270717/237098/4/19352/339603/6697830cFf1b4b288/3bfba6c387f662c8.jpg)
@@ -134,7 +136,7 @@ shell::2000:2000:shell:/:/system/bin/sh
 {/* ![Upgrade](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_7.png) */}
 ![Upgrade](https://img20.360buyimg.com/myjd/jfs/t20270717/232993/33/23415/155119/6697995dFebcf4784/622cb328c04155ad.jpg)
 
-在跑更新了  
+在跑更新了
 
 {/* ![GetRoot](/static/images/blog/202407/Get_Root_In_Hair_TV/Get_Root_In_Hair_TV_8.png) */}
 ![GetRoot](https://img30.360buyimg.com/myjd/jfs/t20270717/226503/1/23005/27811/66979f58F1f05f3ef/c5a857c2b7095e93.png)

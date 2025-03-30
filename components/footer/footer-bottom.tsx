@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import { AreaChart, Rss } from 'lucide-react'
 import { Link } from '~/components/ui/link'
-import { SpotifyNowPlaying } from '~/components/ui/now-playing'
+//import { SpotifyNowPlaying } from '~/components/ui/now-playing'
 import { SITE_METADATA } from '~/data/site-metadata'
 
 export function FooterBottom() {
@@ -13,11 +13,11 @@ export function FooterBottom() {
         'border-t border-gray-200 dark:border-gray-700',
       ])}
     >
-      <SpotifyNowPlaying
+      {/*<SpotifyNowPlaying
         className="w-full justify-center truncate [--artist-color:theme(colors.gray.500)] md:max-w-[50%] md:justify-start"
         songEffect="underline"
         showCover
-      />
+      />*/}
       <div className="flex items-center">
         <Link href="/feed.xml" aria-label="RSS Feed" data-umami-event="rss-feed" prefetch={false}>
           <Rss strokeWidth={1.5} size={20} />
