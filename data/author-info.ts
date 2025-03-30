@@ -1,5 +1,5 @@
 export const AUTHOR_INFO = {
-  name: 'Wuqibor / Sunakier',
+  name: 'Wuqibor / LazyerPaper',
   description: 'Where a boy document life and record ordinary journeys',
   email: 'lazyerpaper@qq.com',
   identity: 'Student | Learner',
