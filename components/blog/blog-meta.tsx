@@ -33,11 +33,15 @@ export function BlogMeta({ date, lastmod, slug, readingTime }: BlogMetaProps) {
           <Twemoji emoji="three-o-clock" size="base" />
           <span className="ml-1.5 md:ml-2">{Math.ceil(readingTime.minutes)} mins read</span>
         </div>
-        <span className="text-gray-400">/</span>
-        <div className="flex items-center">
-          <Twemoji emoji="eye" size="base" />
-          <ViewCounter className="ml-1.5 md:ml-2" slug={slug} />
-        </div>
+        {process.env.IS_DATABASE_CONFIGURED === 'true' && (
+          <>
+            <span className="text-gray-400">/</span>
+            <div className="flex items-center">
+              <Twemoji emoji="eye" size="base" />
+              <ViewCounter className="ml-1.5 md:ml-2" slug={slug} />
+            </div>
+          </>
+        )}
       </dd>
     </dl>
   )

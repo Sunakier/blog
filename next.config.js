@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer2')
+const webpack = require('webpack')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -128,6 +129,13 @@ module.exports = () => {
           },
         ],
       })
+
+      // 添加DefinePlugin来定义全局变量
+      config.plugins.push(
+        new webpack.DefinePlugin({
+          'process.env.IS_DATABASE_CONFIGURED': JSON.stringify(Boolean(process.env.DATABASE_URL)),
+        })
+      )
 
       return config
     },
