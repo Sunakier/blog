@@ -1,8 +1,6 @@
 import { SITE_METADATA } from '~/data/site-metadata'
 import { BriefcaseBusiness, Github, Linkedin, Mail, MapPin } from 'lucide-react'
 import { Fragment } from 'react'
-import XIcon from '~/icons/x.svg'
-import JuejinIcon from '~/icons/juejin.svg'
 import { Twemoji } from '~/components/ui/twemoji'
 import { AUTHOR_INFO } from '~/data/author-info'
 
@@ -44,21 +42,12 @@ export function ProfileCardInfo() {
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{AUTHOR_INFO.name}</h3>
       <h4 className="py-2 text-gray-500 dark:text-gray-400">{AUTHOR_INFO.identity}</h4>
       <div className="mb-2 mt-4 space-y-4">
-        <div className="flex items-center text-gray-700 dark:text-gray-200">
-          <BriefcaseBusiness strokeWidth={1.5} size={20} />
-          <p className="flex items-center px-2">
-            {AUTHOR_INFO.work.occupation}
-            {/* @{' '}
-            <a
-              target="_blank"
-              href={AUTHOR_INFO.work.website || '/'}
-              rel="noreferrer"
-              className="underline-offset-4 hover:underline"
-            >
-              {AUTHOR_INFO.work.company}
-            </a> */}
-          </p>
-        </div>
+        {AUTHOR_INFO.work?.occupation && AUTHOR_INFO.work.occupation !== '/' && (
+          <div className="flex items-center text-gray-700 dark:text-gray-200">
+            <BriefcaseBusiness strokeWidth={1.5} size={20} />
+            <p className="flex items-center px-2">{AUTHOR_INFO.work.occupation}</p>
+          </div>
+        )}
         <div className="flex items-center text-gray-700 dark:text-gray-200">
           <MapPin strokeWidth={1.5} size={20} />
           <p className="px-2">

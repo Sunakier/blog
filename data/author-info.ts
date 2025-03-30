@@ -10,9 +10,9 @@ export const AUTHOR_INFO = {
   },
   work: {
     company: '',
-    occupation: 'Student',
+    occupation: '',
     location: 'Guilin, China',
-    website: '/',
+    website: '',
   },
   social: {
     github: 'https://github.com/Sunakier',
