@@ -1,7 +1,6 @@
 export const AUTHOR_INFO = {
-  name: 'Wuqibor',
-  description:
-    'Where a boy document life and record ordinary journeys',
+  name: 'Wuqibor / Sunakier',
+  description: 'Where a boy document life and record ordinary journeys',
   email: '1722302509@qq.com',
   identity: 'Student | Learner',
   address: {
@@ -9,7 +8,7 @@ export const AUTHOR_INFO = {
     flag: 'flag-china',
     timeZone: 8,
   },
-  work: {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  work: {
     company: '',
     occupation: 'Student',
     location: 'Guilin, China',
