@@ -1,0 +1,36 @@
+---
+title: '迁移博客图片到国内CDN'
+date: '2024-06-08'
+tags: ['Blog', 'Tech']
+draft: false
+summary: '对中国大陆方向优化：巧妙使用国内CDN公共资源分发博客资源来加速资源加载'
+authors: ['default']
+images: []
+lastmod: '2024-06-08'
+---
+
+## 快！快！还是快！（doge）
+
+博客的静态资源本来都是放在本地的 static 下的，也在 Cloudflare 做了静态资源缓存，奈何国内出口就内样，遂尝试迁移到国内的公共资源上
+
+### 图片资源
+
+博客的图片已经换到了京东的图床（京东售后图片上传接口），虽然这属于 abuse，但是还是用上了（真香）
+
+其中 https://imgxx.360buyimg.com/myjd/xxx 就属于京东的图床，国内外都非常迅速
+
+具体使用可以自己探索
+
+### NPM静态资源
+
+最开始使用了 unpkg，但是效果并不理想，Cloudflare 在国内的连通性只能说笑笑
+
+博客用了 twemoji , 但是蛋疼的是，很多npm镜像源（国内的 cnpm 及同步其的镜像源）由于遭到滥用（参见：[https://github.com/cnpm/unpkg-white-list](https://github.com/cnpm/unpkg-white-list)），仅仅白名单仓库支持 unpkg，没法子了
+
+npmmirror 中确实有 twemoji 镜像源，但是由于 package.json 未同步 assets 下资源导致关键内容还是从海外节点（ MaxCDN / Cloudflare ）加载
+
+后来发现由七牛云提供的 [https://www.staticfile.net/](https://www.staticfile.net/) 在静态资源托管相对宽松，其同步内容有 twemoji 的 svg 图片资源，遂取用之
+
+### END
+
+暂时到这里了，以后的优化以后再看看有什么吧
