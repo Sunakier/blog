@@ -18,18 +18,27 @@ export function FooterBottom() {
         songEffect="underline"
         showCover
       />*/}
-      <div className="flex items-center">
-        <Link href="/feed.xml" aria-label="RSS Feed" data-umami-event="rss-feed" prefetch={false}>
-          <Rss strokeWidth={1.5} size={20} />
-        </Link>
-        <Link
-          href={SITE_METADATA.analytics.umamiAnalytics.shareUrl}
-          aria-label="Open analytics"
-          data-umami-event="nav-analytics"
-          className="ml-2"
+      <div className="flex w-full items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Link href="/feed.xml" aria-label="RSS Feed" data-umami-event="rss-feed" prefetch={false}>
+            <Rss strokeWidth={1.5} size={20} />
+          </Link>
+          <Link
+            href={SITE_METADATA.analytics.umamiAnalytics.shareUrl}
+            aria-label="Open analytics"
+            data-umami-event="nav-analytics"
+          >
+            <AreaChart strokeWidth={1.5} size={22} />
+          </Link>
+        </div>
+        <a
+          href="https://icp.gov.moe/?keyword=20255777"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
         >
-          <AreaChart strokeWidth={1.5} size={22} />
-        </Link>
+          萌ICP备20255777号
+        </a>
       </div>
     </div>
   )
