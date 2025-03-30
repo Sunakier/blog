@@ -50,7 +50,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           </div>
           <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
             <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
-              <BackToPosts label="Back to posts" />
+              <BackToPosts label="Back to posts" slug={slug} />
               <TableOfContents toc={toc} className="pt-4" />
               <div className="flex flex-col gap-2 pt-4">
                 <EditOnGithub filePath={filePath} />
