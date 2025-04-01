@@ -6,7 +6,16 @@ type Params = {
 }
 
 const isProduction = process.env.NODE_ENV === 'production'
+
 export async function GET(req: Request, { params }: { params: Params }) {
+  // 检查是否配置了数据库
+  if (process.env.IS_DATABASE_CONFIGURED !== 'true') {
+    return NextResponse.json({
+      total: '0',
+      slug: typeof params.slug === 'string' ? params.slug : params.slug?.pop(),
+    })
+  }
+
   try {
     const slug = (
       typeof params.slug === 'string' ? params.slug.toString() : params.slug?.pop()?.toString()
@@ -24,6 +33,14 @@ export async function GET(req: Request, { params }: { params: Params }) {
 }
 
 export async function POST(req: Request, { params }: { params: Params }) {
+  // 检查是否配置了数据库
+  if (process.env.IS_DATABASE_CONFIGURED !== 'true') {
+    return NextResponse.json({
+      total: '0',
+      slug: typeof params.slug === 'string' ? params.slug : params.slug?.pop(),
+    })
+  }
+
   try {
     const slug = (
       typeof params.slug === 'string' ? params.slug.toString() : params.slug?.pop()?.toString()

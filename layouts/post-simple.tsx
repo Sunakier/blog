@@ -10,6 +10,7 @@ import { ScrollButtons } from '~/components/blog/scroll-buttons'
 import { Container } from '~/components/ui/container'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { EditOnGithub } from '~/components/blog/edit-on-github'
+import { BackToPosts } from '~/components/blog/back-to-posts'
 
 interface PostSimpleProps {
   content: CoreContent<Blog>
@@ -27,6 +28,7 @@ export function PostSimple({ content, children }: PostSimpleProps) {
       <ScrollButtons />
       <article className="space-y-6 divide-y divide-gray-200 pt-6 dark:divide-gray-700 lg:space-y-12">
         <div className="space-y-4">
+          <BackToPosts label="Back to posts" slug={slug} className="mb-4" />
           <TagsList tags={tags} />
           <PostTitle>{title}</PostTitle>
           <dl>

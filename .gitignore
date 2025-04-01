@@ -55,3 +55,4 @@ yarn-error.log*
 
 scripts/imdb-movies.csv
 yarn.lock
+json/tag-data.json

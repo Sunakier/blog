@@ -48,15 +48,17 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9">
             <div className="prose max-w-none dark:prose-invert lg:prose-lg lg:pb-8">{children}</div>
           </div>
-          <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
-            <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
-              <BackToPosts label="Back to posts" />
-              <TableOfContents toc={toc} className="pt-4" />
-              <div className="flex flex-col gap-2 pt-4">
-                <EditOnGithub filePath={filePath} />
+          {toc && toc.length > 0 && (
+            <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
+              <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
+                <BackToPosts label="Back to posts" slug={slug} />
+                {toc && toc.length > 0 && <TableOfContents toc={toc} className="pt-4" />}
+                <div className="flex flex-col gap-2 pt-4">
+                  <EditOnGithub filePath={filePath} />
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
         <GradientDivider />
         <div className="space-y-4">
