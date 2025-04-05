@@ -15,8 +15,8 @@ export function PostCardGridView({ post }: { post: CoreContent<Blog> }) {
   const showOnMobile = showBannerOnMobile !== false
 
   return (
-    <article>
-      <div className="flex flex-col items-start justify-between gap-4 md:gap-6">
+    <article className="h-full">
+      <div className="flex h-full flex-col items-start justify-between gap-4 md:gap-6">
         <div className="w-full space-y-3">
           <div className="flex items-center gap-x-1.5 text-sm text-gray-600 dark:text-gray-400">
             <time dateTime={date}>{formatDate(date)}</time>
