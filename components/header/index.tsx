@@ -42,7 +42,11 @@ export function Header() {
         <div className="flex items-center gap-4">
           <div className="hidden gap-1.5 sm:flex">
             {HEADER_NAV_LINKS.map(({ title, href }) => {
-              const isActive = pathname.startsWith(href)
+              // 修复Home链接始终显示激活状态的问题
+              // 对于Home链接(href='/')，只有当路径完全等于'/'或'/index'时才激活
+              // 对于其他链接，继续使用startsWith判断
+              const isActive =
+                href === '/' ? pathname === '/' || pathname === '/index' : pathname.startsWith(href)
               return (
                 <Link key={title} href={href} className="px-3 py-1 font-medium">
                   <GrowingUnderline
