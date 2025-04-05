@@ -36,7 +36,13 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <TagsList tags={tags} />
           <PostTitle>{title}</PostTitle>
           <div className="space-y-4 pt-4 md:pt-10">
-            {images?.[0] && <Banner banner={images[0]} />}
+            {images?.[0] && (
+              <Banner
+                banner={images[0]}
+                showInArticle={content.showBannerInArticle !== false}
+                showOnMobile={content.showBannerOnMobile !== false}
+              />
+            )}
           </div>
           <div className="flex items-center justify-between gap-2 pb-4 lg:pt-2">
             <BlogMeta date={date} lastmod={lastmod} slug={slug} readingTime={readingTime} />
@@ -48,17 +54,15 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9">
             <div className="prose max-w-none dark:prose-invert lg:prose-lg lg:pb-8">{children}</div>
           </div>
-          {toc && toc.length > 0 && (
-            <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
-              <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
-                <BackToPosts label="Back to posts" slug={slug} />
-                {toc && toc.length > 0 && <TableOfContents toc={toc} className="pt-4" />}
-                <div className="flex flex-col gap-2 pt-4">
-                  <EditOnGithub filePath={filePath} />
-                </div>
+          <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
+            <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
+              <BackToPosts label="Back to posts" slug={slug} />
+              {toc && toc.length > 0 && <TableOfContents toc={toc} className="pt-4" />}
+              <div className="flex flex-col gap-2 pt-4">
+                <EditOnGithub filePath={filePath} />
               </div>
             </div>
-          )}
+          </div>
         </div>
         <GradientDivider />
         <div className="space-y-4">

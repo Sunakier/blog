@@ -9,6 +9,11 @@ import { Twemoji } from '~/components/ui/twemoji'
 import { MORE_NAV_LINKS } from '~/data/navigation'
 
 export function MoreLinks() {
+  // 如果MORE_NAV_LINKS为空数组，则不显示More下拉菜单
+  if (MORE_NAV_LINKS.length === 0) {
+    return null
+  }
+
   return (
     <div className="flex items-center">
       <Menu as="div" className="relative inline-block text-left">
@@ -38,7 +43,9 @@ export function MoreLinks() {
                       onClick={close}
                     >
                       <Twemoji emoji={emoji} />
-                      <span data-umami-event={`nav-${href.replace('/', '')}`}>{title}</span>
+                      <span data-umami-event={`nav-${(href as string).replace('/', '')}`}>
+                        {title}
+                      </span>
                     </Link>
                   )}
                 </MenuItem>

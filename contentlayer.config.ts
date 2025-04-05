@@ -94,6 +94,8 @@ export const Blog = defineDocumentType(() => ({
     draft: { type: 'boolean' },
     summary: { type: 'string' },
     images: { type: 'json' },
+    showBannerInArticle: { type: 'boolean', default: true },
+    showBannerOnMobile: { type: 'boolean', default: true },
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
     bibliography: { type: 'string' },

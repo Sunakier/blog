@@ -10,6 +10,8 @@ export const SITE_METADATA = {
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/profile.webp`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
   githubStarShower: false, // switch star shower
+  homepagePostCount: 2, // 控制首页显示的文章数量
+  baiduSiteVerification: 'codeva-dYX1WWXwDC', // 百度站点验证码
 
   locale: 'en-US',
   stickyNav: false,

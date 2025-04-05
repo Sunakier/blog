@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { Container } from '~/components/ui/container'
 import { GrowingUnderline } from '~/components/ui/growing-underline'
 import { Link } from '~/components/ui/link'
-import { HEADER_NAV_LINKS } from '~/data/navigation'
+import { HEADER_NAV_LINKS, MORE_NAV_LINKS } from '~/data/navigation'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { Logo } from './logo'
 import { MobileNav } from './mobile-nav'
@@ -18,17 +18,7 @@ import { AUTHOR_INFO } from '~/data/author-info'
 let logged = false
 function logASCIItext() {
   if (logged) return
-//  console.info(`
-//                                 __                                       
-//                                /\\ \\                                      
-//  ___ ___      __    ___      __\\ \\ \\/'\\      __        ___ ___      __   
-///' __\` __\`\\  /'__\`\\/' _ \`\\  /'_ \`\\ \\ , <    /'__\`\\    /' __\` __\`\\  /'__\`\\ 
-///\\ \\/\\ \\/\\ \\/\\  __//\\ \\/\\ \\/\\ \\L\\ \\ \\ \\\\\`\\ /\\  __/  __/\\ \\/\\ \\/\\ \\/\\  __/ 
-//\\ \\_\\ \\_\\ \\_\\ \\____\\ \\_\\ \\_\\ \\____ \\ \\_\\ \\_\\ \\____\\/\\_\\ \\_\\ \\_\\ \\_\\ \\____\\
-// \\/_/\\/_/\\/_/\\/____/\\/_/\\/_/\\/___L\\ \\/_/\\/_/\\/____/\\/_/\\/_/\\/_/\\/_/\\/____/
-//                              /\\____/                                     
-//                              \\_/__/                                                          
-//  `)
+  console.info(`Wuqibor's Blog`)
   console.log('🧑‍💻 View source:', SITE_METADATA.siteRepo)
   console.log(`🙌 Let's connect:`, AUTHOR_INFO.email)
   logged = true
@@ -52,7 +42,11 @@ export function Header() {
         <div className="flex items-center gap-4">
           <div className="hidden gap-1.5 sm:flex">
             {HEADER_NAV_LINKS.map(({ title, href }) => {
-              const isActive = pathname.startsWith(href)
+              // 修复Home链接始终显示激活状态的问题
+              // 对于Home链接(href='/')，只有当路径完全等于'/'或'/index'时才激活
+              // 对于其他链接，继续使用startsWith判断
+              const isActive =
+                href === '/' ? pathname === '/' || pathname === '/index' : pathname.startsWith(href)
               return (
                 <Link key={title} href={href} className="px-3 py-1 font-medium">
                   <GrowingUnderline
@@ -64,7 +58,7 @@ export function Header() {
                 </Link>
               )
             })}
-            <MoreLinks />
+            {MORE_NAV_LINKS.length > 0 && <MoreLinks />}
           </div>
           <div
             data-orientation="vertical"

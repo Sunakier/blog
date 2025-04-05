@@ -1,14 +1,15 @@
 import { SITE_METADATA } from './site-metadata'
 
 export const HEADER_NAV_LINKS = [
+  { href: '/', title: 'Home', emoji: 'house' },
   { href: '/blog', title: 'Blog', emoji: 'writing-hand' },
   { href: '/projects', title: 'Projects', emoji: 'man-technologist' },
   { href: '/about', title: 'About', emoji: 'smiling-face-with-sunglasses' },
+  { href: '/tags', title: 'Tags', emoji: 'label' },
+  { href: '/friends', title: 'Friends', emoji: 'woman-and-man-holding-hands' },
 ]
 
 export const MORE_NAV_LINKS = [
-  { href: '/tags', title: 'Tags', emoji: 'label' },
-  { href: '/friends', title: 'Friends', emoji: 'woman-and-man-holding-hands' },
   // { href: SITE_METADATA.analytics.umamiAnalytics.shareUrl, title: 'Blog stats', emoji: 'bar-chart' },
 ]
 

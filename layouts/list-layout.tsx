@@ -11,6 +11,7 @@ import { Link } from '~/components/ui/link'
 import { Container } from '~/components/ui/container'
 import { GrowingUnderline } from '~/components/ui/growing-underline'
 import { PageHeader } from '~/components/ui/page-header'
+import { MasonryLayout } from '~/components/ui/masonry-layout'
 
 interface PaginationProps {
   totalPages: number
@@ -102,12 +103,17 @@ export function ListLayout({
       {!filteredBlogPosts.length ? (
         <div className="py-10">No posts found.</div>
       ) : (
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 py-10 md:gap-y-16 lg:grid-cols-2 xl:grid-cols-3">
-          {displayPosts.map((post) => (
-            <div key={post.path} id={`blog-${post.slug}`}>
-              <PostCardGridView post={post} />
-            </div>
-          ))}
+        <div className="py-10">
+          {/* 使用新的MasonryLayout组件实现真正的瀑布流布局 */}
+          <MasonryLayout>
+            {displayPosts
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .map((post) => (
+                <div key={post.path} id={`blog-${post.slug}`} className="masonry-item">
+                  <PostCardGridView post={post} />
+                </div>
+              ))}
+          </MasonryLayout>
         </div>
       )}
       {pagination && pagination.totalPages > 1 && !searchValue && (

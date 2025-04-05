@@ -1,5 +1,6 @@
 import 'css/tailwind.css'
 import 'css/twemoji.css'
+import 'css/masonry.css'
 import 'react-medium-image-zoom/dist/styles.css'
 import 'remark-github-blockquote-alert/alert.css'
 
@@ -113,6 +114,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="color-scheme" content="dark light"></meta>
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+      {SITE_METADATA.baiduSiteVerification && (
+        <meta name="baidu-site-verification" content={SITE_METADATA.baiduSiteVerification} />
+      )}
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body
         className={clsx([

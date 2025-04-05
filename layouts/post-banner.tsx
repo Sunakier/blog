@@ -41,6 +41,8 @@ export function PostBanner({ content, children }: LayoutProps) {
             <Banner
               banner={images?.[0] || SITE_METADATA.socialBanner}
               className="lg:-mx-8 xl:-mx-36 2xl:-mx-52"
+              showInArticle={content.showBannerInArticle !== false}
+              showOnMobile={content.showBannerOnMobile !== false}
             />
           </div>
         </div>
