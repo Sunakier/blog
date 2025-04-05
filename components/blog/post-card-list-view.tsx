@@ -44,9 +44,7 @@ export function PostCardListView({
               </h2>
               <TagsList tags={tags} />
             </div>
-            <div className="line-clamp-2 text-gray-500 dark:text-gray-400 md:line-clamp-3">
-              {summary}
-            </div>
+            <div className="text-gray-500 dark:text-gray-400">{summary}</div>
 
             {hasImages && (
               <Link

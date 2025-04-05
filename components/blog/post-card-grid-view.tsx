@@ -29,7 +29,7 @@ export function PostCardGridView({ post }: { post: CoreContent<Blog> }) {
                 <GrowingUnderline>{title}</GrowingUnderline>
               </Link>
             </h3>
-            <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600 dark:text-gray-500 md:mt-3">
+            <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-500 md:mt-3">
               {summary}
             </p>
           </div>
