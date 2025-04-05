@@ -2,6 +2,7 @@
 .masonry-grid {
   width: 100%;
   padding: 2.5rem 0;
+  position: relative;
 }
 
 /* 确保每个项目样式正确 */
@@ -19,5 +20,55 @@
 
 /* 添加过渡效果使布局变化更平滑 */
 .masonry-item {
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.5s ease-in-out;
+}
+
+/* 加载状态样式 */
+.masonry-item-loading {
+  opacity: 0;
+}
+
+.masonry-item-loaded {
+  opacity: 1;
+}
+
+/* 加载占位符样式 */
+.masonry-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.masonry-loading-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+}
+
+/* 无图片卡片的额外底部边距 */
+.masonry-item article:not(:has(img)) {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 暗模式下的边框颜色 */
+@media (prefers-color-scheme: dark) {
+  .masonry-item article:not(:has(img)) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .masonry-loading-placeholder {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 }
