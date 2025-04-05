@@ -1,6 +1,7 @@
 import { SITE_METADATA } from './site-metadata'
 
 export const HEADER_NAV_LINKS = [
+  { href: '/', title: 'Home', emoji: 'house' },
   { href: '/blog', title: 'Blog', emoji: 'writing-hand' },
   { href: '/projects', title: 'Projects', emoji: 'man-technologist' },
   { href: '/about', title: 'About', emoji: 'smiling-face-with-sunglasses' },
