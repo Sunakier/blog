@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface MasonryLayoutProps {
   children: React.ReactNode
@@ -21,8 +21,6 @@ export function MasonryLayout({
 }: MasonryLayoutProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<HTMLDivElement[]>([])
-  // 添加加载状态控制
-  const [isLoading, setIsLoading] = useState(true)
 
   // 根据屏幕宽度动态调整列数
   const getResponsiveColumnCount = () => {
@@ -44,11 +42,7 @@ export function MasonryLayout({
     resizeObserver.observe(container)
 
     // 初始化瀑布流布局
-    setTimeout(() => {
-      applyMasonry()
-      // 布局计算完成后，设置加载状态为false
-      setIsLoading(false)
-    }, 100) // 短暂延迟确保DOM已完全渲染
+    applyMasonry()
 
     return () => {
       resizeObserver.disconnect()
@@ -103,13 +97,8 @@ export function MasonryLayout({
           ref={(el) => {
             if (el) itemsRef.current[index] = el
           }}
-          className={`masonry-item ${isLoading ? 'masonry-item-loading' : 'masonry-item-loaded'}`}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            opacity: isLoading ? 0 : 1,
-            transition: 'opacity 0.5s ease-in-out',
-          }}
+          className="masonry-item"
+          style={{ position: 'absolute', width: '100%' }}
         >
           {child}
         </div>
@@ -122,11 +111,6 @@ export function MasonryLayout({
       className={`masonry-grid relative ${className}`}
       style={{ position: 'relative', width: '100%', minHeight: '200px' }}
     >
-      {isLoading && (
-        <div className="masonry-loading-overlay">
-          <div className="masonry-loading-placeholder"></div>
-        </div>
-      )}
       {wrappedChildren}
     </div>
   )
