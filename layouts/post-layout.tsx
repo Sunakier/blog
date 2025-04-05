@@ -36,7 +36,13 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <TagsList tags={tags} />
           <PostTitle>{title}</PostTitle>
           <div className="space-y-4 pt-4 md:pt-10">
-            {images?.[0] && <Banner banner={images[0]} />}
+            {images?.[0] && (
+              <Banner
+                banner={images[0]}
+                showInArticle={content.showBannerInArticle !== false}
+                showOnMobile={content.showBannerOnMobile !== false}
+              />
+            )}
           </div>
           <div className="flex items-center justify-between gap-2 pb-4 lg:pt-2">
             <BlogMeta date={date} lastmod={lastmod} slug={slug} readingTime={readingTime} />

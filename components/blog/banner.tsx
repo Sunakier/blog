@@ -4,11 +4,30 @@ import { Image, Zoom } from '~/components/ui/image'
 import { Link } from '~/components/ui/link'
 import { capitalize, kebabCaseToPlainText } from '~/utils/misc'
 
-export function Banner({ banner, className }: { banner: string; className?: string }) {
+export function Banner({
+  banner,
+  className,
+  showInArticle = true,
+  showOnMobile = true,
+}: {
+  banner: string
+  className?: string
+  showInArticle?: boolean
+  showOnMobile?: boolean
+}) {
   const [path, author, id] = banner.split('__')
   const handle = path.split('/').pop() || ''
+
+  // 如果不在文章中显示，则直接返回null
+  if (!showInArticle) {
+    return null
+  }
+
+  // 构建响应式类名，控制在小屏设备上的显示
+  const responsiveClass = !showOnMobile ? 'hidden md:block' : ''
+
   return (
-    <div className={clsx('relative', className)}>
+    <div className={clsx('relative', responsiveClass, className)}>
       <Zoom>
         <Image
           src={banner}
